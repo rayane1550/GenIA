@@ -1,3 +1,5 @@
+print(">>> O ARQUIVO VIEWS FOI CARREGADO!")
+
 from django.shortcuts import render, redirect
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView
 from rest_framework.views import APIView
@@ -13,7 +15,18 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.http import JsonResponse 
 from .models import Usuario
 from django.contrib.auth import authenticate
-from rest_framework.authtoken.models import Token 
+from rest_framework.authtoken.models import Token
+
+
+from django.contrib.auth.signals import user_logged_in
+from django.dispatch import receiver
+
+@receiver(user_logged_in)
+def sinal_login_sucesso(sender, request, user, **kwargs):
+    # Essa linha vai imprimir no terminal do VS Code sempre que alguém logar
+    print(f"-------------------------------------------")
+    print(f"SUCESSO: O usuário {user.email} acabou de entrar!")
+    print(f"-------------------------------------------")
 
 
 @api_view(['POST'])
