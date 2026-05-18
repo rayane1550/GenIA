@@ -158,6 +158,8 @@ SIMPLE_JWT = { # Configurações do JWT servem para controlar a validade dos tok
 
 MIDDLEWARE = [
 
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -189,6 +191,8 @@ MIDDLEWARE = [
 
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_CREDENTIALS = True
 
 
 
@@ -332,5 +336,14 @@ STATIC_URL = 'static/'
 CORS_ALLOWED_ORIGINS = [
 
     "http://localhost:5173",
+    "http://127.0.0.1:5173",
+
 
 ]
+
+# Obriga o Django a jogar o e-mail no console do terminal em vez de enviar de verdade
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Desativa completamente a necessidade de confirmar e-mail para registrar usuários
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_REQUIRED = True

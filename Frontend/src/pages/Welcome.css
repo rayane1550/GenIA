@@ -1,0 +1,179 @@
+/* 1. IMPORTAÇÃO DA SUA FONTE NO TOPO DO ARQUIVO CSS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* Redefinição global para garantir que herde a fonte em tudo nesta página */
+.welcome-container, 
+.welcome-container *, 
+.welcome-container button, 
+.welcome-container input {
+  font-family: 'Open Sans', sans-serif !important;
+  box-sizing: border-box;
+}
+
+/* Garante que a tela ocupe todo o espaço sem criar barras de rolagem */
+.welcome-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   PARTE DO ROBÔ (LADO ESQUERDO) - MANTIDA EXATAMENTE COMO VOCÊ QUERIA AUMENTADA
+   ========================================================================== */
+.welcome-left {
+  flex: 1;
+  /* Aplica o gradiente radial usando as suas duas cores exatas do print */
+  background: radial-gradient(circle, #020617 1%, #1D2530 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* CÍRCULO DO ROBÔ AUMENTADO */
+.logo-circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+}
+
+/* ROBÔ PNG BRANCO AUMENTADO */
+.robot-logo {
+  width: 150px; 
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-badge {
+  margin-top: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 8px 20px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* ==========================================================================
+   PARTE DO TEXTO E DOS CARDS (LADO DIREITO) - CORRIGIDA, AMPLIADA E GORDINHA
+   ========================================================================== */
+.welcome-right {
+  width: 48vw; /* Força o lado direito a ter o tamanho correto da tela */
+  background-color: #dcdcdc; /* O fundo cinza claro dos seus prints */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 40px;
+}
+
+/* Indicadores de progresso superiores */
+.carousel-indicators {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.indicator-bar {
+  width: 45px;
+  height: 6px;
+  background-color: #9ca3af;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.indicator-bar.active {
+  background-color: #1f35ff;
+}
+
+/* Área de Texto Centralizado (Textos maiores com Open Sans) */
+.slide-content {
+  text-align: center;
+  max-width: 550px; 
+  min-height: 220px;
+}
+
+.slide-content h1 {
+  font-size: 42px; /* Deixou o título imponente */
+  color: #111827;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.slide-content h1 span {
+  color: #1f35ff;
+}
+
+.slide-content p {
+  font-size: 18px; /* Parágrafo com boa leitura */
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* GRID DE RECURSOS - OS CARDS LADO A LADO E MAIS GORDINHOS */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Trava duas colunas para não esticar em uma linha só */
+  gap: 20px;
+  width: 100%;
+  max-width: 600px; 
+  margin-bottom: 30px;
+}
+
+.feature-item {
+  background-color: rgba(255, 255, 255, 0.88); /* Bem branquinho e limpo */
+  border: 1px solid #ced4da;
+  border-radius: 12px; 
+  padding: 18px 20px; /* Mais estofamento interno para parecer gordinho */
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 16px; /* Texto interno maior */
+  font-weight: 600;
+  color: #212529;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* ÍCONES QUE VOCÊ EXPORTOU DO FIGMA */
+.feature-icon-img {
+  width: 28px; 
+  height: 28px;
+  object-fit: contain;
+}
+
+/* BOTÃO DE ACESSO ESTILIZADO */
+.access-btn {
+  width: 100%;
+  max-width: 340px;
+  height: 54px;
+  background-color: #1f35ff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px; 
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(31, 53, 255, 0.3);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.access-btn:hover {
+  background-color: #1324cc;
+}
+
+.access-btn:active {
+  transform: scale(0.98);
+}

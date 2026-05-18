@@ -13,4 +13,6 @@ urlpatterns = [
     
     # Suas rotas da API (certifique-se que a pasta se chama 'Api' com A maiúsculo)
     path('Api/', include('Api.urls')),
+
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 ]
