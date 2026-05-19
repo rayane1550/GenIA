@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./ChatGeral.css";
 import robot from "../assets/robot.svg";
+import lupa from "../assets/lupa.png"
+import more from "../assets/more.svg"
 
 function ChatGeral() {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
@@ -65,13 +67,13 @@ function ChatGeral() {
           <div className="menu-section">
             <button className="sidebar-action-btn">
               <div className="menu-icon-wrapper">
-                <img src="" alt="Buscar" className="sidebar-icon-img" />
+                <img src={lupa} alt="Buscar" className="lupa" />
               </div>
               {isSidebarExpanded && <span className="menu-text">Buscar em Chats</span>}
             </button>
             <button className="sidebar-action-btn">
               <div className="menu-icon-wrapper">
-                <img src="" alt="Novo" className="sidebar-icon-img" />
+                <img src={more} alt="Novo" className="more" />
               </div>
               {isSidebarExpanded && <span className="menu-text">Nova Conversa</span>}
             </button>
@@ -87,7 +89,7 @@ function ChatGeral() {
             </button>
             <button className="sidebar-menu-item">
               <div className="menu-icon-wrapper">
-                <img src="" alt="Condomínios" className="sidebar-icon-img" />
+                <img src="" alt="Condomínios" className="condomin" />
               </div>
               {isSidebarExpanded && <span className="menu-text">Condomínios</span>}
             </button>
