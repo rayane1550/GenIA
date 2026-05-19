@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,4 +16,8 @@ urlpatterns = [
     path('Api/', include('Api.urls')),
 
     path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+
+    path('password-reset/confirm/<uidb64>/<token>/', 
+         TemplateView.as_view(template_name="index.html"), 
+         name='password_reset_confirm'),
 ]

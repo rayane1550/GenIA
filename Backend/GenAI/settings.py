@@ -347,3 +347,23 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Desativa completamente a necessidade de confirmar e-mail para registrar usuários
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_EMAIL_REQUIRED = True
+
+# 3. Suas credenciais (O Gmail exige uma "Senha de App" gerada na sua conta Google)
+EMAIL_HOST_USER = 'seu_email_do_projeto@gmail.com'
+EMAIL_HOST_PASSWORD = 'aquela_senha_de_16_letras_que_o_google_gera'
+
+# E-mail que vai aparecer como remetente para o usuário
+DEFAULT_FROM_EMAIL = 'GenIA <seu_email_do_projeto@gmail.com>'
+
+SOCIALACCOUNT_AUTO_SIGNUP = True
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+LOGIN_REDIRECT_URL = 'http://localhost:5173/login-callback'
+LOGOUT_REDIRECT_URL = 'http://localhost:5173/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False

@@ -1,7 +1,5 @@
-/* 1. IMPORTAÇÃO DA SUA FONTE NO TOPO DO ARQUIVO CSS */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght=400;600;700&display=swap');
 
-/* Redefinição global para garantir que herde a fonte em tudo nesta página */
 .welcome-container, 
 .welcome-container *, 
 .welcome-container button, 
@@ -10,31 +8,26 @@
   box-sizing: border-box;
 }
 
-/* Garante que a tela ocupe todo o espaço sem criar barras de rolagem */
 .welcome-container {
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
+  background-color: #dcdcdc;
 }
 
-/* ==========================================================================
-   PARTE DO ROBÔ (LADO ESQUERDO) - MANTIDA EXATAMENTE COMO VOCÊ QUERIA AUMENTADA
-   ========================================================================== */
 .welcome-left {
-  flex: 1;
-  /* Aplica o gradiente radial usando as suas duas cores exatas do print */
+  flex: 1.1;
   background: radial-gradient(circle, #020617 1%, #1D2530 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding: 40px;
 }
 
-/* CÍRCULO DO ROBÔ AUMENTADO */
 .logo-circle {
   width: 260px;
   height: 260px;
@@ -47,7 +40,6 @@
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
 }
 
-/* ROBÔ PNG BRANCO AUMENTADO */
 .robot-logo {
   width: 150px; 
   height: auto;
@@ -64,25 +56,21 @@
   background: rgba(255, 255, 255, 0.05);
 }
 
-
-/* ==========================================================================
-   PARTE DO TEXTO E DOS CARDS (LADO DIREITO) - CORRIGIDA, AMPLIADA E GORDINHA
-   ========================================================================== */
 .welcome-right {
-  width: 48vw; /* Força o lado direito a ter o tamanho correto da tela */
-  background-color: #dcdcdc; /* O fundo cinza claro dos seus prints */
+  flex: 1;
+  background-color: #dcdcdc; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 60px 40px;
+  padding: 50px 30px;
+  gap: 30px;
 }
 
-/* Indicadores de progresso superiores */
 .carousel-indicators {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .indicator-bar {
@@ -98,18 +86,17 @@
   background-color: #1f35ff;
 }
 
-/* Área de Texto Centralizado (Textos maiores com Open Sans) */
 .slide-content {
   text-align: center;
-  max-width: 550px; 
-  min-height: 220px;
+  width: 100%;
+  max-width: 500px; 
 }
 
 .slide-content h1 {
-  font-size: 42px; /* Deixou o título imponente */
+  font-size: 38px;
   color: #111827;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   line-height: 1.2;
 }
 
@@ -118,52 +105,48 @@
 }
 
 .slide-content p {
-  font-size: 18px; /* Parágrafo com boa leitura */
+  font-size: 16px; 
   color: #4b5563;
   line-height: 1.6;
 }
 
-/* GRID DE RECURSOS - OS CARDS LADO A LADO E MAIS GORDINHOS */
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Trava duas colunas para não esticar em uma linha só */
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
   width: 100%;
-  max-width: 600px; 
-  margin-bottom: 30px;
+  max-width: 500px; 
 }
 
 .feature-item {
-  background-color: rgba(255, 255, 255, 0.88); /* Bem branquinho e limpo */
+  background-color: rgba(255, 255, 255, 0.88); 
   border: 1px solid #ced4da;
   border-radius: 12px; 
-  padding: 18px 20px; /* Mais estofamento interno para parecer gordinho */
+  padding: 16px 18px; 
   display: flex;
   align-items: center;
-  gap: 14px;
-  font-size: 16px; /* Texto interno maior */
+  gap: 12px;
+  font-size: 15px; 
   font-weight: 600;
   color: #212529;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
-/* ÍCONES QUE VOCÊ EXPORTOU DO FIGMA */
 .feature-icon-img {
-  width: 28px; 
-  height: 28px;
+  width: 26px; 
+  height: 26px;
   object-fit: contain;
 }
 
-/* BOTÃO DE ACESSO ESTILIZADO */
 .access-btn {
   width: 100%;
   max-width: 340px;
-  height: 54px;
+  height: 52px;
   background-color: #1f35ff;
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 18px; 
+  font-size: 16px; 
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(31, 53, 255, 0.3);
@@ -176,4 +159,40 @@
 
 .access-btn:active {
   transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+  .slide-content h1 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-container {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .welcome-left {
+    padding: 30px 20px;
+    width: 100%;
+  }
+
+  .logo-circle {
+    width: 160px;
+    height: 160px;
+  }
+
+  .robot-logo {
+    width: 90px;
+  }
+
+  .welcome-right {
+    width: 100%;
+    padding: 30px 20px;
+  }
+  
+  .slide-content h1 {
+    font-size: 28px;
+  }
 }

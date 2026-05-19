@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght=400;600;700&display=swap');
 
-/* Garante a fonte Open Sans em tudo na tela de login */
 .container, 
 .container *, 
 .container button, 
@@ -13,7 +12,6 @@
   width: 100%;
   min-height: 100vh;
   background-color: #1d2530;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +19,14 @@
 }
 
 .icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 5px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 10px auto;
+  display: block;
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 24px;
   color: #111111;
   font-weight: 700;
   margin-bottom: 25px;
@@ -38,15 +37,38 @@ h2 span {
   color: #1f35ff;
 }
 
+.label-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 6px;
+}
+
+.input-label {
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.input-group-validation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px; 
+}
+
 .forgot {
+  display: block;
   width: 100%;
   text-align: right;
   color: #6d6d6d;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  margin-top: -5px;
-  margin-bottom: 15px;
+  margin-top: -8px;
+  margin-bottom: 20px;
   transition: color 0.2s;
 }
 
@@ -56,24 +78,19 @@ h2 span {
 
 .google-btn {
   width: 100%;
-  height: 56px;
-
+  height: 50px;
   border: 1px solid #ced4da;
-  border-radius: 14px;
-
+  border-radius: 12px;
   background: #ffffff;
-
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 12px;
-
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: #333333;
-
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 12px;
   transition: background-color 0.2s, transform 0.1s;
 }
 
@@ -86,12 +103,12 @@ h2 span {
 }
 
 .google-btn img {
-  width: 22px;
+  width: 20px;
 }
 
 .signup {
-  margin-top: 25px;
-  font-size: 16px;
+  margin-top: 24px;
+  font-size: 14px;
   color: #6d6d6d;
   text-align: center;
 }
@@ -100,39 +117,61 @@ h2 span {
   color: #1f35ff;
   font-weight: 700;
   cursor: pointer;
+  text-decoration: none;
 }
 
-/* ==========================================================================
-   SISTEMA DE VALIDAÇÃO VISUAL (TEXTOS EM VERMELHO DO FIGMA)
-   ========================================================================== */
-
-/* Envelopa o input e a mensagem de erro acima dele */
-.input-group-validation {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 12px; /* Espaçamento entre blocos de input */
-}
-
-/* O texto do erro alinhado à direita no topo do input */
 .error-message-inline {
-  color: #bd2a2a; /* Vermelho do print */
-  font-size: 13px;
+  color: #bd2a2a;
+  font-size: 12px;
   font-weight: 600;
   text-align: right;
-  align-self: flex-end;
 }
 
-/* Erro Geral (Preencha todos os campos / Incorretos) */
 .error-message-inline.geral {
   width: 100%;
-  text-align: right;
-  margin-bottom: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  display: block;
 }
 
-/* Força a borda e o fundo do input a ficarem vermelhos se houver erro */
 .input-error-wrapper input {
   border: 1px solid #bd2a2a !important;
   background-color: rgba(189, 42, 42, 0.04) !important;
+}
+
+
+a {
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.signup a,
+.login-text a {
+  text-decoration: none !important;
+}
+
+.signup span,
+.login-text span {
+  color: #1f35ff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: inline-block;
+
+  margin-left: 6px; 
+
+}
+
+
+.signup span:hover,
+.login-text span:hover {
+  color: #1324cc;
+}
+
+.signup span:focus,
+.login-text span:focus,
+.signup a:focus,
+.login-text a:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
