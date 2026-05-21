@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import (
 )
 
 from .views import (
-    RegisterViewSet,
+    RegisterView,
     UsuarioViewSet,
     MensagemViewSet,
     ConversaViewSet,
@@ -33,7 +33,7 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
 
     # Registro
-    path('register/', RegisterViewSet.as_view(), name='register'),
+    path('register/', RegisterView.as_view(), name='register'), 
 
     # Perfil protegido
     path('teste/', teste, name='teste'),

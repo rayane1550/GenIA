@@ -82,7 +82,7 @@ function Cadastro() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/auth/registration/",
+        "http://127.0.0.1:8000/Api/auth/register/", // Aqui eu mudei a APi que estva com a minusculo mas a e register aplicação estava maiusculo
         {
           method: "POST",
           headers: {

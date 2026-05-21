@@ -9,11 +9,7 @@ SECRET_KEY = 'django-insecure-^$#b-yihdqq%p_rnjro@+s_&q=6#w$f6@88d#7x++(_=$yb%bw
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-
-AUTH0_DOMAIN = "geniatcc.uk.auth0.com"
-AUTH0_API_AUDIENCE = "fcNck2hsBvG8G6UJZBeSX7AyLVnQpik8"
-AUTH0_ALGORITHMS = ["RS256"]
+ALLOWED_HOSTS = []
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -34,6 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'rest_framework',
     'rest_framework.authtoken',
+
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -45,7 +42,6 @@ SITE_ID = 1
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'Api.authentication.Auth0JWTAuthentication',
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': (
@@ -56,12 +52,6 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    'ALGORITHM': 'RS256',
-    'JWK_URL': f'https://{AUTH0_DOMAIN}/.well-known/jwks.json',
-    'AUDIENCE': AUTH0_API_AUDIENCE,
-    'ISSUER': f'https://{AUTH0_DOMAIN}/',
-    'USER_ID_FIELD': 'username',
-    'USER_ID_CLAIM': 'sub',
 }
 
 MIDDLEWARE = [
@@ -140,4 +130,5 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 
+LOGIN_REDIRECT_URL = 'http://localhost:5173/Welcome'
 LOGOUT_REDIRECT_URL = 'http://localhost:5173/'

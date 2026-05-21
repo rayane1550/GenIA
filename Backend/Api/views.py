@@ -1,21 +1,18 @@
-print(">>> O ARQUIVO VIEWS FOI CARREGADO!")
-
 from django.shortcuts import render, redirect
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import *
-from rest_framework.decorators import api_view, action, permission_classes
+from rest_framework.decorators import action, permission_classes, api_view
 from .serializers import *
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .filters import *
 from django_filters.rest_framework import DjangoFilterBackend
 from django.http import JsonResponse 
-from .models import Usuario
 from django.contrib.auth import authenticate
-from rest_framework.authtoken.models import Token
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 from django.contrib.auth.signals import user_logged_in
@@ -95,16 +92,21 @@ class UsuarioViewSet(ModelViewSet): # viewset serve para criar as rotas automati
         ])
    
  
-class RegisterViewSet(APIView):
-    permission_classes=[AllowAny]
- 
+class RegisterView(APIView):
+
+    permission_classes = [AllowAny] # permite que qualquer pessoa que ainda não tem o acesso entre na rota de registro, ou seja, não exige autenticação para acessar essa view. Isso é importante porque, se colocássemos IsAuthenticated aqui, ninguém conseguiria se registrar, já que o registro é a porta de entrada para obter acesso ao sistema. Portanto, AllowAny é a escolha correta para permitir que novos usuários criem suas contas sem precisar estar autenticados previamente.
+
     def post(self, request):
-        serializer = RegisterSerializer (data=request.data)
-        if serializer.is_valid():
-            serializer.is_valid(raise_exception=True)
-            serializer.save()
-            return Response({"detail": "Usuário criado com sucesso."}, status=status.HTTP_201_CREATED)
-        return Response({"detail": "Erro ao criar o usuário."}, status=status.HTTP_400_BAD_REQUEST)
+
+        serializer = RegisterSerializer(data=request.data)
+
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(
+            {"detail": "Usuário criado com sucesso."},
+            status=status.HTTP_201_CREATED
+        )
 
 
 
@@ -217,11 +219,12 @@ class LoginView(APIView):
  
         if user is not None:
  
-            token, created = Token.objects.get_or_create(user=user)
+            refresh = RefreshToken.for_user(user)
  
             return Response({
                 "success": True,
-                "token": token.key,
+                "access": str(refresh.access_token),
+                "refresh": str(refresh),
                 "message": "Login realizado com sucesso"
             })
  
